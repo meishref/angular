@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <select class="form-select w-25 mb-4" [(ngModel)]="selectedCategory">
+
+  @for (cat of categories; track cat) {
+    <option [value]="cat === 'All' ? '' : cat">
+      {{ cat }}
+    </option>
+  }
+
+</select>
+  <div class="row">
+
+    @for (product of filterProducts(); track product.id) {
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow border-0 position-relative">
+
+        <!-- Badge -->
+        <span class="badge bg-danger position-absolute m-2">
+          Sale
+        </span>
+
+        <!-- Image -->
+        <img [src]="product.image" class="card-img-top" alt="course">
+
+        <div class="card-body">
+
+          <!-- Title -->
+          <h6 class="fw-bold">{{ product.title }}</h6>
+
+          <!-- Description -->
+          <p class="text-muted small">
+            {{ product.description }}
+          </p>
+
+          <!-- Rating -->
+          <p class="text-warning mb-1">
+            ⭐ {{ product.rating }}
+          </p>
+
+          <!-- Price -->
+          <div>
+            <span class="text-decoration-line-through text-muted me-2">
+              {{ product.price }} EGP
+            </span>
+
+            <span class="fw-bold text-warning">
+              {{ product.discountPrice }} EGP
+            </span>
+          </div>
+
+          <!-- Seats -->
+          <p class="text-danger small mt-2">
+            Only {{ product.seats }} seats left!
+          </p>
+
+        </div>
+
+        <!-- Button -->
+        <div class="card-footer bg-white border-0">
+          <button class="btn btn-warning w-100"  (click)="enroll(product.id)">
+            Enroll Now
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+    }
+  </div>
+
+</div>

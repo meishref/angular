@@ -1,0 +1,115 @@
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  height: 70px;
+  background: rgba(2, 6, 23, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 60%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo span.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f59e0b;
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.6);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+  }
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav a {
+  position: relative;
+  text-decoration: none;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  transition: color 0.3s, background 0.3s;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 60%;
+  height: 2px;
+  background: #f59e0b;
+  border-radius: 2px;
+  transition: transform 0.3s;
+}
+
+.nav a:hover {
+  color: #f1f5f9;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* CTA button */
+.nav .btn-cta {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #020617 !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 16px rgba(245, 158, 11, 0.3);
+  transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
+}
+
+.nav .btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(245, 158, 11, 0.55);
+}
+
+.nav .btn-cta::after {
+  display: none;
+}
