@@ -2,9 +2,11 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Roony } from '../models/roony';
+import { DisccountPipe } from '../pips/disccount-pipe';
+import { Buttonclick } from '../drivtives/buttonclick';
 @Component({
   selector: 'app-card',
-  imports: [FormsModule, ],
+  imports: [FormsModule,DisccountPipe, CommonModule,Buttonclick],
   templateUrl: './card.html',
   styleUrl: './card.css',
 })

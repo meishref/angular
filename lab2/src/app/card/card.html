@@ -20,7 +20,7 @@
         </span>
 
         <!-- Image -->
-        <img [src]="product.image" class="card-img-top" alt="course">
+        <img src="{{ product.image }}" class="card-img-top" alt="course">
 
         <div class="card-body">
 
@@ -44,7 +44,7 @@
             </span>
 
             <span class="fw-bold text-warning">
-              {{ product.discountPrice }} EGP
+              {{ product.price | disccount }} EGP
             </span>
           </div>
 
@@ -57,7 +57,7 @@
 
         <!-- Button -->
         <div class="card-footer bg-white border-0">
-          <button class="btn btn-warning w-100"  (click)="enroll(product.id)">
+          <button class="btn btn-warning w-100" appButtonclick (click)="enroll(product.id)">
             Enroll Now
           </button>
         </div>
