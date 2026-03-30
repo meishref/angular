@@ -10,6 +10,6 @@ id: number;
   rating: number;
   category: string;
 
-
+quantity?: number;
 
 }
