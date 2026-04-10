@@ -1,69 +1,53 @@
 <div class="container mt-5">
-    
   <div class="row">
 
-    @for (product of filterProducts(); track product.id) {
-    <div class="col-md-3 mb-4">
-      <div class="card h-100 shadow border-0 position-relative">
+    @for (product of products; track product.id) {
 
-        <!-- Badge -->
-        <span class="badge bg-danger position-absolute m-2">
-          Sale
-        </span>
+    <div class="col-md-3 mb-4">
+      <div class="card h-100 shadow border-0">
 
         <!-- Image -->
-        <img src="{{ product.image }}" class="card-img-top" alt="course">
+        <img [src]="product.image"
+             class="card-img-top"
+             alt="{{ product.title }}">
 
         <div class="card-body">
 
           <!-- Title -->
-          <h6 class="fw-bold">{{ product.title }}</h6>
+          <h6 class="fw-bold text-truncate">
+            {{ product.title }}
+          </h6>
 
-          <!-- Description -->
+          <!-- Category -->
           <p class="text-muted small">
-            {{ product.description }}
-          </p>
-
-          <!-- Rating -->
-          <p class="text-warning mb-1">
-            ⭐ {{ product.rating }}
+            {{ product.category }}
           </p>
 
           <!-- Price -->
-          <div>
-            <span class="text-decoration-line-through text-muted me-2">
-              {{ product.price }} EGP
-            </span>
-
-            <span class="fw-bold text-warning">
-              {{ product.price | disccount }} EGP
-            </span>
-          </div>
-
-          <!-- Seats -->
-          <p class="text-danger small mt-2">
-            Only {{ product.seats }} seats left!
-          </p>
+          <span class="fw-bold text-warning">
+            {{ product.price }} EGP
+          </span>
 
         </div>
 
-        <!-- Button -->
         <div class="card-footer bg-white border-0">
-          <button class="btn btn-warning w-100" appButtonclick (click)="enroll(product.id) ; sendTotalPrice(product)">
-            Enroll Now
+
+          <input type="number"
+                 class="form-control mb-2"
+                 [(ngModel)]="product.quantity"
+                 min="1">
+
+          <button class="btn btn-warning w-100"
+                  (click)="handleEnroll(product)">
+            Add to Cart
           </button>
-          <button class="btn btn-outline-secondary w-100 mt-2" (click)="viewDetails(product.id)" >
-            View Details
-          </button>
-          <input type="number" placeholder="Quantity" class="form-control mt-2" [(ngModel)]="product.quantity">
-          
-        
+
         </div>
 
       </div>
-
     </div>
-    }
-  </div>
 
+    }
+
+  </div>
 </div>

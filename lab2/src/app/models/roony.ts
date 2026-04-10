@@ -1,15 +1,12 @@
 export interface Roony {
-
-id: number;
+  id: number;
   title: string;
+  price: number;
   description: string;
   image: string;
-  price: number;
+  category: string;
   discountPrice: number;
   seats: number;
   rating: number;
-  category: string;
-
-quantity?: number;
-
+  quantity?: number;
 }

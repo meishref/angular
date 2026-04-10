@@ -6,6 +6,8 @@ import { Orders } from './orders/orders';
 import { About } from './about/about';
 import { ContactUs} from './contact-us/contact-us';
 import { ErrorPage } from './error-page/error-page';
+import { Info } from './info/info';
+import { Review } from './review/review';
 export const routes: Routes = [
   {
     path: '',
@@ -31,8 +33,14 @@ export const routes: Routes = [
   }
   ,{
 path: 'about',
-component: About
-  },
+component: About,
+children: [
+  { path: 'review', component: Review },
+  { path: 'info', component: Info },
+  
+],
+  }
+   ,  
   {
     path: 'contact-us',
     component: ContactUs

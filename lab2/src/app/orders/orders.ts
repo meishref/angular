@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Card } from '../card/card';
-import { Getallcatgories } from '../services/getallcatgories';
+import { GetallCategories } from '../services/getallcategories';
 @Component({
   selector: 'app-orders',
   imports: [FormsModule,Card],
@@ -11,8 +11,8 @@ import { Getallcatgories } from '../services/getallcatgories';
 export class Orders {
 selectedCategory : string = '';
 
-private getallcatgories: Getallcatgories = inject(Getallcatgories);
-categories = this.getallcatgories.categories;
+private getallCategories: GetallCategories = inject(GetallCategories);
+categories = this.getallCategories.categories;
 
   
 }
